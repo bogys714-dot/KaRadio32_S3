@@ -18,14 +18,6 @@ The project is fully configured for development and compilation inside **VS Code
 
 ---
 
-## 🌐 Web Interface
-
-The custom firmware includes an optimized web control panel where you can manage stations, monitor playback, and select your display type on the fly.
-
-<img width="944" height="1239" alt="Web Interface Screen" src="https://github.com/user-attachments/assets/ecbaab14-ea9f-4d7c-88a3-67f6b4b213d8" />
-
----
-
 ## 🔌 Hardware Wiring & Peripheral Connections
 
 All hardware pins are statically defined. Below is the reference table for connecting your peripherals to the ESP32-S3 development board.
@@ -57,8 +49,6 @@ All hardware pins are statically defined. Below is the reference table for conne
 If you need to change the GPIO assignment or modify peripheral settings, all definitions are located in the following header file:
 📂 `main/include/gpio.h`
 
-Here is the exact reference layout used in this build:
-
 ```cpp
 /******************************************************************************
  * * Copyright 2017 karawin ([http://www.karawin.fr](http://www.karawin.fr))
@@ -74,12 +64,6 @@ Here is the exact reference layout used in this build:
 #include "driver/gpio.h"
 
 #define GPIO_NONE 255
-
-//-------------------------------//
-// Define GPIO used in KaRadio32 //
-//-------------------------------//
-// ESP32-S3 (16MB flash / 8MB Octal PSRAM module).
-// GPIO26-37 заняты шиной Octal PSRAM/Flash — не используются.
 
 #define KSPI SPI2_HOST
 #define PIN_NUM_MISO GPIO_NUM_13
@@ -102,31 +86,11 @@ Here is the exact reference layout used in this build:
 #define PIN_ENC1_B   GPIO_NONE
 #define PIN_ENC1_BTN GPIO_NONE
 
-// 3 Buttons — Disabled
-#define PIN_BTN0_A   GPIO_NONE		
-#define PIN_BTN0_B   GPIO_NONE		
-#define PIN_BTN0_C   GPIO_NONE		
-#define PIN_BTN1_A   GPIO_NONE		
-#define PIN_BTN1_B   GPIO_NONE		
-#define PIN_BTN1_C 	 GPIO_NONE		
-
-// Joystick — Disabled
-#define PIN_JOY_0	GPIO_NONE
-#define PIN_JOY_1	GPIO_NONE
-
-// I2C — Disabled
-#define PIN_I2C_SCL GPIO_NONE
-#define PIN_I2C_SDA GPIO_NONE
-#define PIN_I2C_RST	GPIO_NONE
-
 // SPI LCD (TFT)
 #define PIN_LCD_CS	GPIO_NUM_10	// TFT_CS
 #define PIN_LCD_A0	GPIO_NUM_7	// TFT_DC
 #define PIN_LCD_RST GPIO_NUM_6  // TFT_RST
 #define PIN_LCD_BACKLIGHT	GPIO_NUM_5
-
-// IR Signal — Disabled
-#define PIN_IR_SIGNAL GPIO_NUM_NC
 
 // I2S DAC Output
 #define PIN_I2S_LRCK GPIO_NUM_18	// I2S_LRC
@@ -136,7 +100,6 @@ Here is the exact reference layout used in this build:
 #define PIN_ADC	GPIO_NONE
 #define PIN_TOUCH_CS	GPIO_NONE
 #define PIN_AUDIO_SHDN	GPIO_NONE
-
 #define PIN_SLEEP   GPIO_NONE
 #define LEVEL_SLEEP   1
 

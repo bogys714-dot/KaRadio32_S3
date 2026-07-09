@@ -142,8 +142,3 @@ Here is the exact reference layout used in this build:
 
 // [Functions and prototypes continue below in the original source code...]
 #endif
-
-<img width="1346" height="683" alt="ESP32 S3" src="https://github.com/user-attachments/assets/01f951f0-44dd-45ea-98b2-72bca3792df3" />
-
-<img width="944" height="1239" alt="192 168 1 135_" src="https://github.com/user-attachments/assets/5f1f1cbd-fe5d-4195-8d77-58b33084ba7a" />
-

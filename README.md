@@ -105,10 +105,11 @@ If you need to change the GPIO assignment or modify peripheral settings, all def
 
 // [Functions and prototypes continue below in the original source code...]
 #endif
+
 ### Project Screenshots
 
 **1. PlatformIO Build Environment:**
-![PlatformIO Build Screen](screen_pio.jpg)
+<img src="./screen_pio.jpg" width="100%" alt="PlatformIO Build Screen" />
 
 **2. Web Control Interface:**
-![Web Interface Screen](screen_web.png)
+<img src="./screen_web.png" width="100%" alt="Web Interface Screen" />

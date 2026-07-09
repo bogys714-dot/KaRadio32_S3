@@ -105,3 +105,7 @@ If you need to change the GPIO assignment or modify peripheral settings, all def
 
 // [Functions and prototypes continue below in the original source code...]
 #endif
+<img width="1346" height="683" alt="ESP32 S3" src="https://github.com/user-attachments/assets/8a9d2b68-2e31-41e6-a509-435f8cf500ad" />
+
+<img width="944" height="1239" alt="192 168 1 135_" src="https://github.com/user-attachments/assets/96b975f6-a272-4a89-8050-e18a139eb4e1" />
+

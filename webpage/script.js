@@ -1493,8 +1493,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function applyDisplaySettings() {
     var lcdType = document.getElementById('lcdType').value;
     var lcdRotation = document.getElementById('lcdRotation').value; 
+    var wdayLang = document.getElementById('wdayLang').value;
     
-    var datatosend = "valid=1&coutput=0&idlcd=" + lcdType + "&rt=" + lcdRotation; 
+    var datatosend = "valid=1&coutput=0&idlcd=" + lcdType + "&rt=" + lcdRotation + "&wdaylang=" + wdayLang; 
     
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "hardware", true); 

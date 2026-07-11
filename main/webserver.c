@@ -880,11 +880,15 @@ static void handlePOST(char* name, char* data, int data_size, int conn) {
 	{
 		extern void option_set_lcd_info(uint8_t type, uint8_t rotate);
 		extern void option_get_lcd_info(uint8_t *type, uint8_t *rotate);
+		extern void option_set_wdaylang(uint8_t lang);
+		extern void option_get_wdaylang(uint8_t *lang);
 
 		bool val = false;
 		uint8_t cout = g_device->audio_output_mode;
 		uint8_t lcd_type = g_device->lcd_type;
 		uint8_t lcd_rot = 0;
+		uint8_t wday_lang = 0;
+		bool got_wdaylang = false;
 		changed = false;
 		
 		printf("=== ВЕБ-СЕРВЕР: Получен запрос /hardware! Размер данных: %d ===\n", data_size);
@@ -915,6 +919,13 @@ static void handlePOST(char* name, char* data, int data_size, int conn) {
 				printf("Распознана ротация дисплея: %d\n", lcd_rot);
 			}
 
+			char cwdl[6];
+			if(getSParameterFromResponse(cwdl, 6, "wdaylang=", data, data_size)) {
+				wday_lang = atoi(cwdl);
+				got_wdaylang = true;
+				printf("Распознан язык дня недели: %d\n", wday_lang);
+			}
+
 			if (val && lcd_type != 91) 
 			{
 				if (g_device->audio_output_mode != cout || g_device->lcd_type != lcd_type) {
@@ -932,16 +943,22 @@ static void handlePOST(char* name, char* data, int data_size, int conn) {
 				}
 			}
 
+			if (val && got_wdaylang) {
+				option_set_wdaylang(wday_lang);
+				printf("Язык дня недели (%d) сохранён в NVS!\n", wday_lang);
+			}
+
 			uint8_t dummy_lcd;
 			option_get_lcd_info(&dummy_lcd, &lcd_rot);
+			option_get_wdaylang(&wday_lang);
 
 			char resp_safe[320];
-			int json_len = sprintf(resp_safe, "{\"coutput\":\"%d\",\"lcd\":\"%d\",\"rt\":\"%d\"}", g_device->audio_output_mode, g_device->lcd_type, lcd_rot);
+			int json_len = sprintf(resp_safe, "{\"coutput\":\"%d\",\"lcd\":\"%d\",\"rt\":\"%d\",\"wdaylang\":\"%d\"}", g_device->audio_output_mode, g_device->lcd_type, lcd_rot, wday_lang);
 			
 			int total_len = sprintf(resp_safe, 
 				"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: %d\r\nConnection: close\r\n\r\n"
-				"{\"coutput\":\"%d\",\"lcd\":\"%d\",\"rt\":\"%d\"}", 
-				json_len, g_device->audio_output_mode, g_device->lcd_type, lcd_rot);
+				"{\"coutput\":\"%d\",\"lcd\":\"%d\",\"rt\":\"%d\",\"wdaylang\":\"%d\"}", 
+				json_len, g_device->audio_output_mode, g_device->lcd_type, lcd_rot, wday_lang);
 
 			write(conn, resp_safe, total_len);
 

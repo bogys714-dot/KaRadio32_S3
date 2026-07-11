@@ -48,9 +48,11 @@ All hardware pins are statically defined. Below is the reference table for conne
 
 If you need to change the GPIO assignment or modify peripheral settings, all definitions are located in the following header file:
 📂 `main/include/gpio.h`
-<img width="3456" height="4608" alt="IMG20260711103101" src="https://github.com/user-attachments/assets/bbaa394c-6ed7-446d-b094-e9f448918156" />
 
-<img width="684" height="1281" alt="192 168 1 135_" src="https://github.com/user-attachments/assets/62ed0c47-ceb4-46d9-b8b5-783249b15242" />
+<img width="3456" height="4608" alt="3" src="https://github.com/user-attachments/assets/b73fc86b-66a0-4600-9d94-452d37b1a480" />
+
+<img width="684" height="1281" alt="192 168 1 135_" src="https://github.com/user-attachments/assets/eee5cd54-7270-4a1d-ba4d-7f2777426b00" />
+
 
 <img width="495" height="679" alt="5" src="https://github.com/user-attachments/assets/36fda851-d568-480f-8b48-8dc73825b02f" />
 

@@ -412,10 +412,16 @@ void drawVolumeU8g2(uint8_t mTscreen)
   } while ( u8g2_NextPage(&u8g2) );	     
 }
 
+// Weekday names, indexed by tm_wday (0=Sunday .. 6=Saturday).
+static const char* wdayLatin[7]     = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+static const char* wdayRussian[7]   = {"Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"};
+static const char* wdayUkrainian[7] = {"Неділя","Понеділок","Вівторок","Середа","Четвер","П'ятниця","Субота"};
+
 void drawTimeU8g2(uint8_t mTscreen,unsigned timein)
 {
   char strdate[46];
   char strtime[40];
+  char strwday[32];
 //  printf("DRAW TIME U8G2  mtscreen : %d\n",mTscreen);
 	u8g2_ClearBuffer(&u8g2);
   u8g2_FirstPage(&u8g2);
@@ -425,9 +431,20 @@ void drawTimeU8g2(uint8_t mTscreen,unsigned timein)
     else
 		sprintf(strdate,"%02d-%02d-%04d", dt->tm_mon+1, dt->tm_mday, dt->tm_year+1900);
     sprintf(strtime,"%02d:%02d:%02d", dt->tm_hour, dt->tm_min,dt->tm_sec);
+    // language: 0 = Russian, 1 = Ukrainian, 2 = English (see gpio.h)
+    uint8_t wdaylang;
+    option_get_wdaylang(&wdaylang);
+    switch (wdaylang) {
+      case 0:  strcpy(strwday,wdayRussian[dt->tm_wday]);   break;
+      case 1:  strcpy(strwday,wdayUkrainian[dt->tm_wday]); break;
+      default: strcpy(strwday,wdayLatin[dt->tm_wday]);     break;
+    }
     drawTTitleU8g2(strdate); 
     setfont8(large);	
     u8g2_DrawUTF8(&u8g2,(x/2)-(u8g2_GetUTF8Width(&u8g2,strtime)/2),(yy/3)+4,strtime); 
+	uint16_t timeLineHeight = y; // line height of the "large" font just used
+	setfont8(middle);
+	u8g2_DrawUTF8(&u8g2,(x/2)-(u8g2_GetUTF8Width(&u8g2,strwday)/2),(yy/3)+4+timeLineHeight,strwday);
 	vTaskDelay(1);
   } while ( u8g2_NextPage(&u8g2) );	     
 }

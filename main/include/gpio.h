@@ -143,6 +143,9 @@ void option_get_lcd_info(uint8_t *enca,uint8_t* rt);
 void option_set_lcd_info(uint8_t enca, uint8_t rt);
 void option_get_ddmm(uint8_t *enca);
 void option_set_ddmm(uint8_t enca);
+// Weekday name language: 0 = Russian, 1 = Ukrainian, 2 = English
+void option_get_wdaylang(uint8_t *enca);
+void option_set_wdaylang(uint8_t enca);
 void option_get_lcd_out(uint32_t *enca,uint32_t *encb);
 void option_get_lcd_blv(int *blv);
 void option_set_lcd_stop(uint32_t enca);

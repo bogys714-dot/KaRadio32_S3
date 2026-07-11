@@ -295,8 +295,9 @@ void setfont(sizefont size)
 		switch(inX)
 		{
 			case 320:
-			case 240: 
-			ucg_SetFont(&ucg,ucg_font_osr41_hn);/////размер чaсов////
+			case 240:
+			ucg_SetFont(&ucg,ucg_font_osr41_hn); 
+//			ucg_SetFont(&ucg,ucg_font_inr53_mf); 
 			break;
 			case 128:
 //			ucg_SetFont(&ucg,ucg_font_helvR12_hf); 
@@ -600,7 +601,7 @@ void setColor(int i)
         }  
 }
 
-////////////////////////////********************//////////////////////////////
+////////////////////
 // draw one line
 void draw(int i)
 {
@@ -871,10 +872,20 @@ static  void drawInfo(unsigned timein)
   }    
 }
 
+////////////////////////////////////////
+// Weekday abbreviations, indexed by tm_wday (0=Sunday .. 6=Saturday).
+// The Cyrillic/Greek entries are plain UTF-8 literals: they get converted
+// to the font's single-byte encoding by removeUtf8() at draw time, exactly
+// like incoming station/title text already is elsewhere in this file.
+static const char* wdayLatin[7]     = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+static const char* wdayRussian[7]   = {"Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"};
+static const char* wdayUkrainian[7] = {"Неділя","Понеділок","Вівторок","Середа","Четвер","П'ятниця","Субота"};
+
 void drawTimeUcg(uint8_t mTscreen,unsigned timein)
 {
   char strdate[46];
   char strtime[40];
+  char strwday[32];
   LANG scharset;
     sprintf(strtime,"%02d:%02d", dt->tm_hour, dt->tm_min);
     switch (mTscreen){
@@ -902,6 +913,21 @@ void drawTimeUcg(uint8_t mTscreen,unsigned timein)
 			ucg_SetFontMode(&ucg,UCG_FONT_MODE_SOLID); 
 			ucg_DrawString(&ucg,(x/2)-(ucg_GetStrWidth(&ucg,strtime)/2),yy/3,0,strtime); 
 			strcpy(TTimeStr,strtime);
+			uint16_t timeLineHeight = y; // line height of the "large" font just used
+
+			// --- day of week, drawn under the time ---
+			// language: 0 = Russian, 1 = Ukrainian, 2 = English (see gpio.h)
+			uint8_t wdaylang;
+			option_get_wdaylang(&wdaylang);
+			switch (wdaylang) {
+				case 0:  strcpy(strwday,wdayRussian[dt->tm_wday]);   removeUtf8(strwday); break;
+				case 1:  strcpy(strwday,wdayUkrainian[dt->tm_wday]); removeUtf8(strwday); break;
+				default: strcpy(strwday,wdayLatin[dt->tm_wday]);    break;
+			}
+			setfont(middle);
+			ucg_SetColor(&ucg,0,CBODY);
+			ucg_DrawString(&ucg,(x/2)-(ucg_GetStrWidth(&ucg,strwday)/2),(yy/3)+timeLineHeight,0,strwday);
+
 			ucg_SetFontMode(&ucg,UCG_FONT_MODE_TRANSPARENT);
 		}
 

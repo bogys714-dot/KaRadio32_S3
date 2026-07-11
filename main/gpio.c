@@ -264,6 +264,47 @@ void option_set_ddmm(uint8_t enca)
 	close_partition(hardware_handle,hardware);		
 }
 
+// Weekday name language: 0 = Russian, 1 = Ukrainian, 2 = English
+void option_get_wdaylang(uint8_t *enca)
+{
+	esp_err_t err;
+	nvs_handle hardware_handle;
+	uint8_t lang;
+	// init default: Russian
+	*enca = 0;
+
+	if (open_partition(hardware, option_space,NVS_READONLY,&hardware_handle)!= ESP_OK)
+	{
+		ESP_LOGD(TAG,"wdaylang");
+		return;
+	}	
+	
+	err = nvs_get_u8(hardware_handle, "O_WDAY_LANG",(uint8_t *) &lang);
+
+	if (err != ESP_OK) ESP_LOGD(TAG,"oget_wdaylang err 0x%x",err);
+	else{
+		if (lang != 255) *enca = lang;
+	}
+	
+	close_partition(hardware_handle,hardware);		
+}
+void option_set_wdaylang(uint8_t enca)
+{
+	esp_err_t err;
+	nvs_handle hardware_handle;
+
+	if (open_partition(hardware, option_space,NVS_READWRITE,&hardware_handle)!= ESP_OK)
+	{
+		ESP_LOGD(TAG,"set_wdaylang");
+		return;
+	}	
+	
+	err = nvs_set_u8(hardware_handle, "O_WDAY_LANG",enca);
+	if (err != ESP_OK) ESP_LOGD(TAG,"oset_wdaylang err 0x%x",err);
+
+	close_partition(hardware_handle,hardware);		
+}
+
 
 void option_set_lcd_out(uint32_t enca)
 {

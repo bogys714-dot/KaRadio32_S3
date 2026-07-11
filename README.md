@@ -48,8 +48,10 @@ All hardware pins are statically defined. Below is the reference table for conne
 
 If you need to change the GPIO assignment or modify peripheral settings, all definitions are located in the following header file:
 📂 `main/include/gpio.h`
-<img width="1346" height="683" alt="ESP32+S3" src="https://github.com/user-attachments/assets/f9ec8011-795d-436a-b68a-5585b3f500eb" />
-<img width="684" height="1239" alt="192 168 1 135_" src="https://github.com/user-attachments/assets/9a6ed470-38ce-4ec8-a308-d7775d94a622" />
+<img width="3456" height="4608" alt="IMG20260711103101" src="https://github.com/user-attachments/assets/bbaa394c-6ed7-446d-b094-e9f448918156" />
+
+<img width="684" height="1281" alt="192 168 1 135_" src="https://github.com/user-attachments/assets/62ed0c47-ceb4-46d9-b8b5-783249b15242" />
+
 <img width="495" height="679" alt="5" src="https://github.com/user-attachments/assets/36fda851-d568-480f-8b48-8dc73825b02f" />
 
 The flashing bin. are located in the binaries folder.

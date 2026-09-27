@@ -1,0 +1,76 @@
+Processing esp32s3 (platform: espressif32 @ 5.4.0; framework: espidf; board: esp32-s3-devkitc-1; board_build.mcu: esp32s3; platform_packages: framework-espidf @ symlink://C:\esp-idf-v4.4.5; board_build.partitions: partitions.csv; build_flags: -DCORE_DEBUG_LEVEL=5; monitor_speed: 115200)
+--------------------------------------------------------------------------------
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32-s3-devkitc-1.html
+PLATFORM: Espressif 32 (5.4.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)
+HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash
+DEBUG: Current (esp-builtin) On-board (esp-builtin) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-espidf @ 3.40405.0 (4.4.5, symlink://C:\esp-idf-v4.4.5) 
+ - tool-cmake @ 3.16.4 
+ - tool-esptoolpy @ 1.40400.0 (4.4.0) 
+ - tool-idf @ 1.0.1 
+ - tool-mconf @ 1.4060000.20190628 (406.0.0) 
+ - tool-ninja @ 1.9.0 
+ - toolchain-esp32ulp @ 1.23500.220830 (2.35.0) 
+ - toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 
+ - toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
+C:\Users\BOGUS\.platformio\platforms\espressif32@5.4.0\builder\frameworks\espidf.py:29: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Reading CMake configuration...
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 0 compatible libraries
+Scanning dependencies...
+No dependencies
+Building in release mode
+xtensa-esp32s3-elf-ar rc .pio\build\esp32s3\esp-idf\spi_flash\libspi_flash.a .pio\build\esp32s3\spi_flash\partition.o .pio\build\esp32s3\spi_flash\esp32s3\spi_flash_rom_patch.o .pio\build\esp32s3\spi_flash\esp32s3\spi_timing_config.o .pio\build\esp32s3\spi_flash\spi_flash_timing_tuning.o .pio\build\esp32s3\spi_flash\spi_flash_hpm_enable.o .pio\build\esp32s3\spi_flash\spi_flash_chip_drivers.o .pio\build\esp32s3\spi_flash\spi_flash_chip_generic.o .pio\build\esp32s3\spi_flash\spi_flash_chip_issi.o .pio\build\esp32s3\spi_flash\spi_flash_chip_mxic.o .pio\build\esp32s3\spi_flash\spi_flash_chip_gd.o .pio\build\esp32s3\spi_flash\spi_flash_chip_winbond.o .pio\build\esp32s3\spi_flash\spi_flash_chip_boya.o .pio\build\esp32s3\spi_flash\spi_flash_chip_mxic_opi.o .pio\build\esp32s3\spi_flash\spi_flash_chip_th.o .pio\build\esp32s3\spi_flash\memspi_host_driver.o .pio\build\esp32s3\spi_flash\cache_utils.o .pio\build\esp32s3\spi_flash\flash_mmap.o .pio\build\esp32s3\spi_flash\flash_ops.o .pio\build\esp32s3\spi_flash\esp32s3\flash_ops_esp32s3.o .pio\build\esp32s3\spi_flash\esp_flash_api.o .pio\build\esp32s3\spi_flash\esp_flash_spi_init.o .pio\build\esp32s3\spi_flash\spi_flash_os_func_app.o .pio\build\esp32s3\spi_flash\spi_flash_os_func_noos.o
+xtensa-esp32s3-elf-ar: .pio\build\esp32s3\esp-idf\spi_flash\libspi_flash.a: No such file or directory
+*** [.pio\build\esp32s3\esp-idf\spi_flash\libspi_flash.a] Error 1
+xtensa-esp32s3-elf-gcc -o .pio\build\esp32s3\spiffs\esp_spiffs.o -c -std=gnu99 -mlongcalls -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -ggdb -Og -fmacro-prefix-map=C:/Users/BOGUS/Desktop/KaRadio32_4=. -fmacro-prefix-map=C:/esp-idf-v4.4.5=IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -Wno-unused-const-variable -Wno-old-style-declaration -DPLATFORMIO=60119 -DARDUINO_ESP32S3_DEV -DARDUINO_USB_MODE=1 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DCORE_DEBUG_LEVEL=5 -D_GNU_SOURCE -DIDF_VER=\"4.4.5\" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -I.pio\build\esp32s3\config -IC:\esp-idf-v4.4.5\components\spiffs\include -IC:\esp-idf-v4.4.5\components\spiffs -IC:\esp-idf-v4.4.5\components\spiffs\spiffs\src -IC:\esp-idf-v4.4.5\components\newlib\platform_include -IC:\esp-idf-v4.4.5\components\freertos\include -IC:\esp-idf-v4.4.5\components\freertos\include\esp_additions\freertos -IC:\esp-idf-v4.4.5\components\freertos\port\xtensa\include -IC:\esp-idf-v4.4.5\components\freertos\include\esp_additions -IC:\esp-idf-v4.4.5\components\esp_hw_support\include -IC:\esp-idf-v4.4.5\components\esp_hw_support\include\soc -IC:\esp-idf-v4.4.5\components\esp_hw_support\include\soc\esp32s3 -IC:\esp-idf-v4.4.5\components\esp_hw_support\port\esp32s3 -IC:\esp-idf-v4.4.5\components\esp_hw_support\port\esp32s3\private_include -IC:\esp-idf-v4.4.5\components\heap\include -IC:\esp-idf-v4.4.5\components\log\include -IC:\esp-idf-v4.4.5\components\lwip\include\apps -IC:\esp-idf-v4.4.5\components\lwip\include\apps\sntp -IC:\esp-idf-v4.4.5\components\lwip\lwip\src\include -IC:\esp-idf-v4.4.5\components\lwip\port\esp32\include -IC:\esp-idf-v4.4.5\components\lwip\port\esp32\include\arch -IC:\esp-idf-v4.4.5\components\soc\include -IC:\esp-idf-v4.4.5\components\soc\esp32s3 -IC:\esp-idf-v4.4.5\components\soc\esp32s3\include -IC:\esp-idf-v4.4.5\components\hal\esp32s3\include -IC:\esp-idf-v4.4.5\components\hal\include -IC:\esp-idf-v4.4.5\components\hal\platform_port\include -IC:\esp-idf-v4.4.5\components\esp_rom\include -IC:\esp-idf-v4.4.5\components\esp_rom\include\esp32s3 -IC:\esp-idf-v4.4.5\components\esp_rom\esp32s3 -IC:\esp-idf-v4.4.5\components\esp_common\include -IC:\esp-idf-v4.4.5\components\esp_system\include -IC:\esp-idf-v4.4.5\components\esp_system\port\soc -IC:\esp-idf-v4.4.5\components\esp_system\port\public_compat -IC:\esp-idf-v4.4.5\components\xtensa\include -IC:\esp-idf-v4.4.5\components\xtensa\esp32s3\include -IC:\esp-idf-v4.4.5\components\driver\include -IC:\esp-idf-v4.4.5\components\driver\esp32s3\include -IC:\esp-idf-v4.4.5\components\esp_pm\include -IC:\esp-idf-v4.4.5\components\esp_ringbuf\include -IC:\esp-idf-v4.4.5\components\efuse\include -IC:\esp-idf-v4.4.5\components\efuse\esp32s3\include -IC:\esp-idf-v4.4.5\components\vfs\include -IC:\esp-idf-v4.4.5\components\esp_wifi\include -IC:\esp-idf-v4.4.5\components\esp_event\include -IC:\esp-idf-v4.4.5\components\esp_netif\include -IC:\esp-idf-v4.4.5\components\esp_eth\include -IC:\esp-idf-v4.4.5\components\tcpip_adapter\include -IC:\esp-idf-v4.4.5\components\esp_phy\include -IC:\esp-idf-v4.4.5\components\esp_phy\esp32s3\include -IC:\esp-idf-v4.4.5\components\esp_ipc\include -IC:\esp-idf-v4.4.5\components\app_trace\include -IC:\esp-idf-v4.4.5\components\esp_timer\include -IC:\esp-idf-v4.4.5\components\spi_flash\include -IC:\esp-idf-v4.4.5\components\bootloader_support\include C:\esp-idf-v4.4.5\components\spiffs\esp_spiffs.c
+In file included from c:\users\bogus\.platformio\packages\toolchain-xtensa-esp32s3\xtensa-esp32s3-elf\sys-include\sys\reent.h:503,
+                 from C:\esp-idf-v4.4.5\components\newlib\platform_include/sys/reent.h:17,
+                 from c:\users\bogus\.platformio\packages\toolchain-xtensa-esp32s3\xtensa-esp32s3-elf\sys-include\stdio.h:60,
+                 from C:\esp-idf-v4.4.5\components\esp_common\include/esp_err.h:10,
+                 from C:\esp-idf-v4.4.5\components\spiffs\include/esp_spiffs.h:19,
+                 from C:\esp-idf-v4.4.5\components\spiffs\esp_spiffs.c:7:
+C:\esp-idf-v4.4.5\components\newlib\platform_include/assert.h:20:10: fatal error: sdkconfig.h: No such file or directory
+
+*******************************************************************
+* Looking for sdkconfig.h dependency? Check our library registry!
+*
+* CLI  > platformio lib search "header:sdkconfig.h"
+* Web  > https://registry.platformio.org/search?q=header:sdkconfig.h
+*
+*******************************************************************
+
+ #include <sdkconfig.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+*** [.pio\build\esp32s3\spiffs\esp_spiffs.o] Error 1
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\BOGUS\\Desktop\\KaRadio32_4\\.pio\\build\\esp32s3\\.sconsign313.tmp':
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\Script\Main.py", line 1508:
+    _exec_main(parser, values)
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\Script\Main.py", line 1462:
+    _main(parser)
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\Script\Main.py", line 1201:
+    nodes = _build_targets(fs, options, targets, target_top)
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\Script\Main.py", line 1396:
+    jobs.run(postfunc = jobs_postfunc)
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\Taskmaster\Job.py", line 114:
+    postfunc()
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\Script\Main.py", line 1393:
+    SCons.SConsign.write()
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\SConsign.py", line 131:
+    syncmethod()
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\dblite.py", line 195:
+    with self._open(self._tmp_name, "wb", opener=self.opener) as f:
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\dblite.py", line 177:
+    return os.open(path, flags, mode=self._mode)
+Exception ignored in: <function _Dblite.__del__ at 0x000002C026F1EFC0>
+Traceback (most recent call last):
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\dblite.py", line 184, in __del__
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\dblite.py", line 181, in close
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\dblite.py", line 195, in sync
+  File "C:\Users\BOGUS\.platformio\packages\tool-scons\scons-local-4.8.1\SCons\dblite.py", line 177, in opener
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\BOGUS\\Desktop\\KaRadio32_4\\.pio\\build\\esp32s3\\.sconsign313.tmp'
+========================= [FAILED] Took 24.82 seconds =========================
